@@ -291,7 +291,24 @@ public class AppleScriptObject {
 			throw new AppleScriptException("Object is not an AppleScriptList.");
 		}
 	}
-	
+
+	/**
+	 * Gets the long value of this object.
+	 *
+	 * @return
+	 * 		The long value.
+	 * @throws AppleScriptException
+	 * 		Is thrown if this object is not a long.
+	 */
+	public long getLong() throws AppleScriptException {
+		try {
+			String string = (String) this.object;
+			return Long.parseLong(string);
+		} catch ( Exception e ) {
+			throw new AppleScriptException("Object is not a Long.", e);
+		}
+	}
+
 	/**
 	 * Gets the {@linkplain AppleScriptMap} value of this object.
 	 * 
@@ -440,6 +457,7 @@ public class AppleScriptObject {
 		try {
 			String string = (String) this.object;
 			if ( string.matches(REGEX_INTEGER) ) {
+				Integer.parseInt(string); // will throw NumberFormatException if not really an int
 				return true;
 			} else {
 				return false;
@@ -458,7 +476,27 @@ public class AppleScriptObject {
 	public boolean isList() {
 		return this.object instanceof AppleScriptList;
 	}
-	
+
+	/**
+	 * Checks if this object is a long.
+	 *
+	 * @return
+	 * 		{@code True} if this object is a long - {@code False} otherwise.
+	 */
+	public boolean isLong() {
+		try {
+			String string = (String) this.object;
+			if ( string.matches(REGEX_INTEGER) ) {
+				Long.parseLong(string); // will throw NumberFormatException if not really a long
+				return true;
+			} else {
+				return false;
+			}
+		} catch ( Exception e ) {
+			return false;
+		}
+	}
+
 	/**
 	 * Checks if this object is an {@linkplain AppleScriptMap}.
 	 * 

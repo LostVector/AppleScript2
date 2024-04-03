@@ -300,7 +300,20 @@ public class AppleScriptList extends ArrayList<AppleScriptObject> {
 		AppleScriptObject object = this.get(index);
 		return object.isList();
 	}
-	
+
+	/**
+	 * Checks if the item with the given index is a long.
+	 *
+	 * @param index
+	 * 		The index of the item.
+	 * @return
+	 * 		{@code True} if the item is a long - {@code False} otherwise.
+	 */
+	public boolean isLong(int index) {
+		AppleScriptObject object = this.get(index);
+		return object.isLong();
+	}
+
 	/**
 	 * Checks if the item with the given index is an {@linkplain AppleScriptMap}.
 	 * 

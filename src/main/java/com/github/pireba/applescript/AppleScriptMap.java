@@ -225,7 +225,22 @@ public class AppleScriptMap extends HashMap<String, AppleScriptObject>{
 		AppleScriptObject object = this.get(key);
 		return object.getList();
 	}
-	
+
+	/**
+	 * Gets the long value for the given key.
+	 *
+	 * @param key
+	 * 		The key of the item.
+	 * @return
+	 * 		The long value.
+	 * @throws AppleScriptException
+	 * 		Is thrown if the item is not an long.
+	 */
+	public long getLong(String key) throws AppleScriptException {
+		AppleScriptObject object = this.get(key);
+		return object.getLong();
+	}
+
 	/**
 	 * Gets the {@linkplain AppleScriptMap} value for the given key.
 	 * 
