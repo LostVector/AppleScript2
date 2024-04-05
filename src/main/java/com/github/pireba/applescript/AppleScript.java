@@ -152,6 +152,10 @@ public class AppleScript {
 			
 			InputStream stream = process.getInputStream();
 			AppleScriptTokenizer tokenizer = new AppleScriptTokenizer(stream);
+			if(!tokenizer.hasMore()) {
+				return null;
+			}
+
 			AppleScriptObject object = new AppleScriptObject(tokenizer);
 			
 			process.waitFor();
