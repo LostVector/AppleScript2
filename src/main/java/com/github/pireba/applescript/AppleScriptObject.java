@@ -121,7 +121,11 @@ public class AppleScriptObject {
 			tokener.goBack();
 			this.object = new AppleScriptList(tokener);
 			return;
-		} else {
+		}
+		else if ( value.equals("missing value") ) {
+			this.object = null;
+		}
+		else {
 			this.object = value;
 		}
 	}
@@ -242,7 +246,7 @@ public class AppleScriptObject {
 	
 	/**
 	 * Gets the file value of this object.
-	 * The return value is a HFS path string.
+	 * The return value is an HFS path string.
 	 * You have to do the conversion to a POSIX path yourself.
 	 * 
 	 * @return
@@ -363,9 +367,8 @@ public class AppleScriptObject {
 			String string = (String) this.object;
 			if ( string.matches(REGEX_ALIAS) ) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		} catch ( Exception e ) {
 			return false;
 		}
@@ -382,9 +385,8 @@ public class AppleScriptObject {
 			String string = (String) this.object;
 			if ( string.matches(REGEX_BOOLEAN) ) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		} catch ( Exception e ) {
 			return false;
 		}
@@ -401,9 +403,8 @@ public class AppleScriptObject {
 			String string = (String) this.object;
 			if ( string.matches(REGEX_DATE) ) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		} catch ( Exception e ) {
 			return false;
 		}
@@ -420,9 +421,8 @@ public class AppleScriptObject {
 			String string = (String) this.object;
 			if ( string.matches(REGEX_DOUBLE) ) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		} catch ( Exception e ) {
 			return false;
 		}
@@ -439,9 +439,9 @@ public class AppleScriptObject {
 			String string = (String) this.object;
 			if ( string.matches(REGEX_FILE) ) {
 				return true;
-			} else {
-				return false;
 			}
+
+			return false;
 		} catch ( Exception e ) {
 			return false;
 		}
@@ -498,6 +498,20 @@ public class AppleScriptObject {
 	}
 
 	/**
+	 * Checks if this object is null.
+	 *
+	 * @return
+	 * 		{@code True} if this object is a null - {@code False} otherwise.
+	 */
+	public boolean isNull() {
+		if ( this.object == null ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
 	 * Checks if this object is an {@linkplain AppleScriptMap}.
 	 * 
 	 * @return
@@ -515,13 +529,19 @@ public class AppleScriptObject {
 	 */
 	public boolean isString() {
 		try {
-			if ( this.object.toString().matches(REGEX_STRING) ) {
-				return true;
-			} else if ( this.object instanceof String ) {
-				return true;
-			} else {
+			if ( this.object == null ) {
 				return false;
 			}
+
+			if ( this.object.toString().matches(REGEX_STRING) ) {
+				return true;
+			}
+
+			if ( this.object instanceof String ) {
+				return true;
+			}
+
+			return false;
 		} catch ( Exception e ) {
 			return false;
 		}

@@ -58,7 +58,7 @@ public class AppleScriptMap extends HashMap<String, AppleScriptObject>{
 			return false;
 		}
 		
-		if ( list.size() <= 0 ) {
+		if ( list.isEmpty() ) {
 			return false;
 		}
 		

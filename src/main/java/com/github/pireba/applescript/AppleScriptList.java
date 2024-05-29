@@ -330,6 +330,19 @@ public class AppleScriptList extends ArrayList<AppleScriptObject> {
 	}
 
 	/**
+	 * Checks if the item with the given index is a null.
+	 *
+	 * @param index
+	 * 		The index of the item.
+	 * @return
+	 * 		{@code True} if the item is a null - {@code False} otherwise.
+	 */
+	public boolean isNull(int index) {
+		AppleScriptObject object = this.get(index);
+		return object.isNull();
+	}
+
+	/**
 	 * Checks if the item with the given index is an {@linkplain AppleScriptMap}.
 	 * 
 	 * @param index
