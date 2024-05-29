@@ -27,7 +27,15 @@ public enum AppleScriptDateFormat {
 	 * Sunday, 7. February 2021 at 17:17:31
 	 */
 	ENGLISH(new SimpleDateFormat("EEEE, d. MMMM y 'at' hh:mm:ss", Locale.ENGLISH)),
-	
+
+	/**
+	 * Default date format for English US language settings.<br>
+	 * <br>
+	 * Example Date:<br>
+	 * Sunday, February 7, 2021 at 5:17:31 PM
+	 */
+	ENGLISH_US(new SimpleDateFormat("EEEE, MMMM d, y 'at' h:mm:ss a", Locale.ENGLISH)),
+
 	/**
 	 * Default date format for French language settings.<br>
 	 * <br>
