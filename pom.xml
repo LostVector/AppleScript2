@@ -46,9 +46,9 @@
 	</distributionManagement>
 	
 	<scm>
-		<url>https://github.com/pireba/Apple-Script</url>
-		<connection>scm:git:https://github.com/pireba/Apple-Script.git</connection>
-		<developerConnection>scm:git:https://github.com/pireba/Apple-Script.git</developerConnection>
+		<url>https://github.com/LostVector/AppleScript2</url>
+		<connection>scm:git:https://github.com/LostVector/AppleScript2.git</connection>
+		<developerConnection>scm:git:https://github.com/LostVector/AppleScript2.git</developerConnection>
 	  <tag>HEAD</tag>
   </scm>
 			
