@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>com.github.pireba</groupId>
-	<artifactId>applescript</artifactId>
+	<groupId>com.rkuo</groupId>
+	<artifactId>applescript2</artifactId>
 	<version>0.0.6-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<name>Apple-Script</name>
 	<description>Execute AppleScript in Java.</description>
-	<url>https://github.com/pireba/Apple-Script</url>
+	<url>https://github.com/LostVector/AppleScript2</url>
 	
 	<licenses>
 		<license>
@@ -20,6 +20,12 @@
 	</licenses>
 	
 	<developers>
+		<developer>
+			<name>Richard Kuo</name>
+			<email>rkuo@rkuo.com</email>
+			<url>https://github.com/LostVector</url>
+			<timezone>UTC-8</timezone>
+		</developer>
 		<developer>
 			<name>Phillip Remmert</name>
 			<email>pireba@me.com</email>
