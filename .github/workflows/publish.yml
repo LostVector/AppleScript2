@@ -23,15 +23,12 @@ jobs:
           server-username: GITHUB_ACTOR
           server-password: GITHUB_TOKEN
 
-      # Publishes com.rkuo:applescript2:<version> to GitHub Packages.
-      # -DaltDeploymentRepository overrides the pom's Sonatype target so the
-      # pom itself stays untouched. GPG signing is skipped (GitHub Packages
-      # does not require signed artifacts); tests are skipped because the
-      # library shells out to macOS `osascript` at runtime.
+      # Publishes com.rkuo:applescript2:<version> to GitHub Packages via the
+      # pom's distributionManagement (id=github). GPG signing is skipped
+      # (GitHub Packages does not require signed artifacts); tests are skipped
+      # because the library shells out to macOS `osascript` at runtime.
       - name: Deploy to GitHub Packages
-        run: >
-          mvn -B -DskipTests -Dgpg.skip=true deploy
-          -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/LostVector/AppleScript2
+        run: mvn -B -DskipTests -Dgpg.skip=true deploy
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
